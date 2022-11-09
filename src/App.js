@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import myContenxt from './context/myContext';
+import { useEffect, useState } from 'react';
+
+import Home from './pages/Home';
+import Favorites from './pages/Favorites';
 
 function App() {
+  const [gibi, setGibi] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+ 
+  useEffect(() => {
+    fetch('https://ghibliapi.herokuapp.com/films')
+    .then(result => result.json())
+    .then(data => setGibi(data))
+    .catch(error => console.error(error))
+  }, [])
+
+  const context = {
+    gibi,
+    favorites,
+    setFavorites
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <myContenxt.Provider value={context}>
+      <Switch>
+        <Route path="/favorites" component={Favorites}/>
+        <Route path="/" component={Home}/>
+      </Switch>
+    </myContenxt.Provider>
   );
 }
 
