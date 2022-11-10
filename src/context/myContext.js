@@ -1,5 +1,1 @@
-import { createContext } from 'react';
-
-const myContext = createContext();
-
-export default myContext;
+// implemente aqui o context
