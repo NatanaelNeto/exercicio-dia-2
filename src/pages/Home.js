@@ -1,9 +1,9 @@
 import Header from '../components/Header';
 import { useContext } from 'react';
-import myContenxt from '../context/myContext';
+import myContext from '../context/myContext';
 
 export default function Home() {
-  const { gibi, favorites, setFavorites } = useContext(myContenxt)
+  const { manga, favorites, setFavorites } = useContext(myContext)
 
   const handleFavorite = (item) => {
     const exist = favorites.find(favorite => favorite.id === item.id)
@@ -14,9 +14,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      <h1>Pagina Home</h1>
       {
-        gibi.map((item) => (
+        manga.map((item) => (
           <div key={item.id}>
             <h1>{item.title}</h1>
             <img src={item.image} alt={item.title}/>

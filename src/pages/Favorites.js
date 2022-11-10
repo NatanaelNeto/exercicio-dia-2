@@ -1,9 +1,9 @@
 import Header from '../components/Header';
 import { useContext } from 'react';
-import myContenxt from '../context/myContext';
+import myContext from '../context/myContext';
 
 export default function Favorites() {
-  const { favorites, setFavorites } = useContext(myContenxt)
+  const { favorites, setFavorites } = useContext(myContext)
 
   const handleDelete = (item) => {
     setFavorites(favorites.filter(favorite => favorite.id !== item.id))
@@ -12,7 +12,6 @@ export default function Favorites() {
   return (
     <>
       <Header />
-      <h1>Pagina de Favoritos</h1>
       {
         favorites.length > 0 && favorites.map(item => (
           <div key={item.id}>
