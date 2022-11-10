@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import { useContext } from 'react';
 import myContext from '../context/myContext';
+import '../styles/Styled.css';
 
 export default function Home() {
   const { manga, favorites, setFavorites } = useContext(myContext)
@@ -14,20 +15,25 @@ export default function Home() {
   return (
     <>
       <Header />
-      {
-        manga.map((item) => (
-          <div key={item.id}>
-            <h1>{item.title}</h1>
-            <img src={item.image} alt={item.title}/>
-            <p>{item.description}</p>
-            <button 
-              onClick={() => handleFavorite(item)}
-            >
-              ❤️
-            </button>
-          </div>
-        ))
-      }
+      <main>
+       <h1>Films</h1>
+         <section className='container'>
+         {
+           manga.map((item) => (
+             <section className='card' key={item.id}>
+               <h2>{item.title}</h2>
+               <img src={item.image} alt={item.title}/>
+               <p>{item.description}</p>
+               <button 
+                 onClick={() => handleFavorite(item)}
+               >
+                 ❤️
+               </button>
+             </section>
+           ))
+         }
+         </section>
+      </main>
     </>
   )
 }
