@@ -5,7 +5,7 @@ main {
 }
 
 h1 {
-  text-shadow: #fffc00 2px 3px 2px;
+  text-shadow: #fdcf36 2px 3px 2px;
   font-size: 45px;
   margin-top: 15px;
   text-align: center;
@@ -18,9 +18,9 @@ h1 {
 }
 
 figure svg {
-  color: red;
-  margin-left: 117px;
-  margin-top: -450px;
+  color: #fdcf36;
+  margin-left: 107px;
+  margin-top: -440px;
   position: absolute;
   font-size: 30px;
 }
@@ -54,7 +54,7 @@ figure figcaption {
   left: 0;
   padding: 3em 3em;
   width: 100%;
-  height: 100%;
+  height: 96%;
 }
 
 figure figcaption::before {
@@ -118,7 +118,7 @@ figure:hover figcaption p {
 }
 
 figure:hover figcaption::before {
-  background: #0808d62f;
+  background: #0944932f;
   top: 30px;
   bottom: 30px;
   opacity: 1;
