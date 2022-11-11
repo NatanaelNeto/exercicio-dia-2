@@ -12,7 +12,7 @@ export default function Header() {
     <header>
       <img src={ logo } alt="logo-ghibli" />
       <nav>
-        { pathname === '/favorites'
+      { pathname === '/favorites'
           ? <Link to="/">
             <GiFilmSpool />
             Films

@@ -1,11 +1,11 @@
 import Header from '../components/Header';
 import { useContext } from 'react';
 import { FaHeart } from 'react-icons/fa';
-import myContenxt from '../context/myContext';
-import '../styles/Home.css';
+import myContext from '../context/myContext';
+import '../styles/Styled.css';
 
 export default function Home() {
-  const { gibi, favorites, setFavorites } = useContext(myContenxt)
+  const { films, favorites, setFavorites } = useContext(myContext)
 
   const handleFavorite = (item) => {
     const exist = favorites.find(favorite => favorite.id === item.id)
@@ -20,7 +20,7 @@ export default function Home() {
       <h1>Films</h1>
         <section className='container'>
         {
-          gibi.map((item) => (
+          films.map((item) => (
             <figure key={item.id}>
               <img src={item.image} alt={item.title}/>
               <figcaption>

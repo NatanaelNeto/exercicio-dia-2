@@ -1,10 +1,10 @@
 import Header from '../components/Header';
 import { useContext } from 'react';
 import { FaHeartBroken } from 'react-icons/fa';
-import myContenxt from '../context/myContext';
+import myContext from '../context/myContext';
 
 export default function Favorites() {
-  const { favorites, setFavorites } = useContext(myContenxt)
+  const { favorites, setFavorites } = useContext(myContext)
 
   const handleDelete = (item) => {
     setFavorites(favorites.filter(favorite => favorite.id !== item.id))
