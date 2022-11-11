@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import { useContext } from 'react';
+import { FaHeart } from 'react-icons/fa';
 import myContenxt from '../context/myContext';
 import '../styles/Home.css';
 
@@ -20,16 +21,18 @@ export default function Home() {
         <section className='container'>
         {
           gibi.map((item) => (
-            <section className='card' key={item.id}>
-              <h2>{item.title}</h2>
+            <figure key={item.id}>
               <img src={item.image} alt={item.title}/>
-              <p>{item.description}</p>
-              <button 
+              <figcaption>
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+              </figcaption>
+              <i 
                 onClick={() => handleFavorite(item)}
               >
-                ❤️
-              </button>
-            </section>
+                <FaHeart />
+              </i>
+            </figure>
           ))
         }
         </section>
