@@ -6,18 +6,18 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 
 function App() {
-  const [manga, setManga] = useState([]);
+  const [films, setFilms] = useState([]);
   const [favorites, setFavorites] = useState([]);
  
   useEffect(() => {
     fetch('https://ghibliapi.herokuapp.com/films')
     .then(result => result.json())
-    .then(data => setManga(data))
+    .then(data => setFilms(data))
     .catch(error => console.error(error))
   }, [])
 
   const context = {
-    manga,
+    films,
     favorites,
     setFavorites
   }
